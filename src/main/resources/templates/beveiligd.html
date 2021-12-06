@@ -6,6 +6,13 @@
 </head>
 <body>
 <a th:href="@{/}">Home</a>
-<h1>Beveiligd</h1>
+<h1 th:text="|Dag ${user}, als je registreert krijg je een mail!|"></h1>
+<form method="post" th:action="@{/registreren}" th:object="${lid}">
+    <p>Voornaam:<input th:field="*{voornaam}"></p>
+    <p>Achternaam:<input th:field="*{familienaam}"></p>
+    <p>Email:<input th:field="*{emailadres}"></p>
+    <button type="submit">Registreren</button>
+</form>
+
 </body>
 </html>
