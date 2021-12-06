@@ -1,4 +1,4 @@
-package com.example.springadvancedtheorie;
+package com.example.springadvancedtheorie.repositories;
 
 import com.example.springadvancedtheorie.domain.Filiaal;
 import org.springframework.data.jpa.repository.JpaRepository;
