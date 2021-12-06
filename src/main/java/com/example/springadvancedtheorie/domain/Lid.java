@@ -15,17 +15,17 @@ public class Lid {
     @NotNull
     private String voornaam,familienaam;
     @Email
-    private String email;
+    private String emailadres;
     @DateTimeFormat(style = "S-")
     private LocalDate lidSinds;
 
     protected Lid() {
     }
 
-    public Lid(String voornaam, String familienaam, String email) {
+    public Lid(String voornaam, String familienaam, String emailadres) {
         this.voornaam = voornaam;
         this.familienaam = familienaam;
-        this.email = email;
+        this.emailadres = emailadres;
         this.lidSinds = LocalDate.now();
     }
 
@@ -41,8 +41,8 @@ public class Lid {
         return familienaam;
     }
 
-    public String getEmail() {
-        return email;
+    public String getEmailadres() {
+        return emailadres;
     }
 
     public LocalDate getLidSinds() {
