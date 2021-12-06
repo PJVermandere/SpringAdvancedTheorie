@@ -1,6 +1,7 @@
 package com.example.springadvancedtheorie;
 
 import com.example.springadvancedtheorie.domain.Filiaal;
+import com.example.springadvancedtheorie.repositories.FiliaalRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
