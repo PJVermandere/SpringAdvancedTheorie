@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ingeschreven</title>
+</head>
+<body>
+<th:block th:if="${lid}">
+    <p th:text="${lid.id}"></p>
+    <p th:text="${lid.voornaam}"></p>
+    <p th:text="${lid.familienaam}"></p>
+    <p th:text="${lid.emailadres}"></p>
+</th:block>
+</body>
+</html>
