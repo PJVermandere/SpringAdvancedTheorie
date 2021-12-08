@@ -3,6 +3,7 @@ package com.example.springadvancedtheorie.restcontrollers;
 import com.example.springadvancedtheorie.domain.Filiaal;
 import com.example.springadvancedtheorie.exceptions.FilaalNietGevondenException;
 import com.example.springadvancedtheorie.services.FiliaalService;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.hateoas.server.EntityLinks;
 import org.springframework.hateoas.server.ExposesResourceFor;
 import org.springframework.hateoas.server.TypedEntityLinks;
@@ -26,16 +27,19 @@ public class FiliaalREST {
         this.links = links.forType(Filiaal.class, Filiaal::getId);
     }
 
+    @Operation(summary = "Retrieve filiaal whit this id")
     @GetMapping("{id}")
     Filiaal get(@PathVariable long id){
         return service.findById(id).orElseThrow(FilaalNietGevondenException::new);
     }
 
+    @Operation(summary = "Retrieve every filaal in database")
     @GetMapping
     List<Filiaal> getAll(){
         return service.findAll();
     }
 
+    @Operation(summary = "Update filiaal with this id")
     @PutMapping("{id}")
     @ResponseStatus(HttpStatus.CREATED)
     void put(@RequestBody @Valid Filiaal filiaal, @PathVariable long id){
@@ -43,11 +47,13 @@ public class FiliaalREST {
 
     }
 
+    @Operation(summary = "Delete filiaal whith this id")
     @DeleteMapping("{id}")
     void delete(@PathVariable long id){
         service.delete(id);
     }
 
+    @Operation(summary = "Add this filiaal to database")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     HttpHeaders post(@RequestBody Filiaal filiaal){
