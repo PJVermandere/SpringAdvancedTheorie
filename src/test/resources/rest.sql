@@ -1,0 +1,1 @@
+insert into rest.filialen (naam, gemeente, omzet) VALUES ('test', 'test', 1000);
