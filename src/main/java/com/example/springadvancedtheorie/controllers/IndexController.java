@@ -1,7 +1,6 @@
 package com.example.springadvancedtheorie.controllers;
 
 import com.example.springadvancedtheorie.domain.Lid;
-import com.example.springadvancedtheorie.forms.RegistratieForm;
 import com.example.springadvancedtheorie.services.LidService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.user.OAuth2User;
