@@ -9,6 +9,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception{
         http.oauth2Login();
-        http.authorizeRequests(req -> req.mvcMatchers("/").permitAll().mvcMatchers("/beveiligd/**").authenticated());
+        http.csrf().disable();
+        http.authorizeRequests(req -> req.mvcMatchers("/", "/filialen").permitAll().mvcMatchers("/beveiligd/**").authenticated());
     }
 }
