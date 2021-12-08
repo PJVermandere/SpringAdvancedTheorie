@@ -1,6 +1,7 @@
 package com.example.springadvancedtheorie.controllers;
 
 import com.example.springadvancedtheorie.domain.Lid;
+import com.example.springadvancedtheorie.restclients.UserClient;
 import com.example.springadvancedtheorie.services.LidService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.user.OAuth2User;
@@ -20,9 +21,11 @@ import javax.validation.Valid;
 @RequestMapping("/")
 public class IndexController {
     private final LidService service;
+    private final UserClient client;
 
-    public IndexController(LidService service) {
+    public IndexController(LidService service, UserClient client) {
         this.service = service;
+        this.client = client;
     }
 
     @GetMapping
@@ -44,5 +47,9 @@ public class IndexController {
     @GetMapping("/leden/{id}")
     public ModelAndView leden(@PathVariable long id){
         return new ModelAndView("leden", "lid", service.findById(id).get());
+    }
+    @GetMapping("/users/{id}")
+    ModelAndView getUser(@PathVariable("id") long id){
+        return new ModelAndView("user", "user", client.findById(id).get());
     }
 }
