@@ -7,10 +7,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -48,6 +45,7 @@ public class IndexController {
     public ModelAndView leden(@PathVariable long id){
         return new ModelAndView("leden", "lid", service.findById(id).get());
     }
+    @CrossOrigin(exposedHeaders = "Location")
     @GetMapping("/users/{id}")
     ModelAndView getUser(@PathVariable("id") long id){
         return new ModelAndView("user", "user", client.findById(id).get());

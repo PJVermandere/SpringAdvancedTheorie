@@ -17,6 +17,7 @@ import java.util.List;
 
 @RestController
 @ExposesResourceFor(Filiaal.class)
+@CrossOrigin(exposedHeaders = "Location")
 @RequestMapping("/filialen")
 public class FiliaalREST {
     private final FiliaalService service;
